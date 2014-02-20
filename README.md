@@ -26,20 +26,25 @@ Flask Analytics is an extension for Flask which generates analytics snippets for
 
 __app.py__
 
-    from flask.ext.analytics import Analytics
+```python
 
-    app.config['GAUGES_SITEID'] = 'XXXXXXXXXXXXX'
+from flask.ext.analytics import Analytics
 
-    code = Analytics(app)
+app.config['GAUGES_SITEID'] = 'XXXXXXXXXXXXX'
 
-    @app.route('/')
-    def index():
+code = Analytics(app)
 
-        return render_template('index.html', analytics=code.code)
+@app.route('/')
+def index():
+
+    return render_template('index.html', analytics=code.code)
+```
 
 __index.html__
 
-    {{ analytics }}
+```
+{{ analytics }}
+```
 
 ### Smoother Integration
 
@@ -47,10 +52,12 @@ You can use `context processors` for smoother integration with flask.
 
 Add
 
-    @app.context_processor
-    def inject_analytics():
+```python
+@app.context_processor
+def inject_analytics():
 
-        return dict(analytics=analytics.code)
+    return dict(analytics=analytics.code)
+```
 
 to make `{{ analytics }}` available in every rendered template automatically.
 
