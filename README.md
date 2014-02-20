@@ -10,7 +10,11 @@ $ cd Flask-Analytics
 $ python setup.py install
 ```
 
-(Soon to be available via `pip`.)
+or
+
+```bash
+$ pip install Flask-Analytics
+```
 
 ## Usage
 
