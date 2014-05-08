@@ -3,6 +3,30 @@ from flask import Flask, Markup
 class AnalyticsEngines(object):
 
     @staticmethod
+    def chartbeat(uid, domain):
+
+        return """<script type="text/javascript">
+            var _sf_async_config={};
+            /** CONFIGURATION START **/
+            _sf_async_config.uid = %s; /** CHANGE THIS **/
+            _sf_async_config.domain = "%s"; /** CHANGE THIS **/
+            /** CONFIGURATION END **/
+            (function(){
+                function loadChartbeat() {
+                    window._sf_endpt=(new Date()).getTime();
+                    var e = document.createElement("script");
+                    e.setAttribute("language", "javascript");
+                    e.setAttribute("type", "text/javascript");
+                    e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+                    document.body.appendChild(e);
+                }
+                var oldonload = window.onload;
+                window.onload = (typeof window.onload != "function") ?
+                loadChartbeat : function() { oldonload(); loadChartbeat(); };
+            })();
+          </script>""" % (uid, domain)
+
+    @staticmethod
     def piwik(piwik_url, siteid):
 
         return """<script type="text/javascript">
@@ -79,6 +103,11 @@ class Analytics(object):
             self.tracking_code.append(AnalyticsEngines.piwik(app.config['PIWIK_BASEURL'],
                                                              app.config['PIWIK_SITEID']))
 
+        if (('CHARTBEAT_UID' in app.config) and
+            ('CHARTBEAT_DOMAIN' in app.config)):
+
+            self.tracking_code.append(AnalyticsEngine.chartbeat(app.config['CHARTBEAT_UID'],
+                                                                app.config['CHARTBEAT_DOMAIN'])
 
     @property
     def code(self):
