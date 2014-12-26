@@ -119,7 +119,7 @@ class Analytics(object):
             ('CHARTBEAT_DOMAIN' in app.config)):
 
             self.tracking_code.append(AnalyticsEngine.chartbeat(app.config['CHARTBEAT_UID'],
-                                                                app.config['CHARTBEAT_DOMAIN'])
+                                                                app.config['CHARTBEAT_DOMAIN']))
 
 
         if 'GOSQUARED_ID' in app.config:
