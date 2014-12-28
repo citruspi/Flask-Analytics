@@ -5,14 +5,6 @@ Flask Analytics is an extension for Flask which generates analytics snippets for
 ## Installation
 
 ```bash
-$ git clone https://github.com/citruspi/Flask-Analytics.git
-$ cd Flask-Analytics
-$ python setup.py install
-```
-
-or
-
-```bash
 $ pip install Flask-Analytics
 ```
 
