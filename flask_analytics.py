@@ -129,12 +129,12 @@ class Analytics(object):
         if (('CHARTBEAT_UID' in app.config) and
             ('CHARTBEAT_DOMAIN' in app.config)):
 
-            self.snippets['chartbeat'] = AnalyticsEngine.chartbeat(app.config['CHARTBEAT_UID'],
+            self.snippets['chartbeat'] = AnalyticsEngines.chartbeat(app.config['CHARTBEAT_UID'],
                                                                 app.config['CHARTBEAT_DOMAIN'])
 
         if 'GOSQUARED_ID' in app.config:
 
-            self.snippets['gosquared'] = AnalyticsEngine.gosquared(app.config['GOSQUARED_ID'])
+            self.snippets['gosquared'] = AnalyticsEngines.gosquared(app.config['GOSQUARED_ID'])
 
         if context_processor:
             app.context_processor(self._context_processor)
