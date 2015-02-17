@@ -1,4 +1,5 @@
 from flask import Flask, Markup
+from pprint import pprint
 
 class AnalyticsEngines(object):
 
@@ -103,7 +104,7 @@ class Analytics(object):
     def __init__ (self, app=None, disable_context_processor=False):
 
         self.app = app
-        self.tracking_code = []
+        self.snippets = {}
 
         if app is not None:
 
@@ -113,27 +114,27 @@ class Analytics(object):
 
         if 'GOOGLE_ANALYTICS_ID' in app.config:
 
-            self.tracking_code.append(AnalyticsEngines.google_analytics(app.config['GOOGLE_ANALYTICS_ID']))
+            self.snippets['google'] = AnalyticsEngines.google_analytics(app.config['GOOGLE_ANALYTICS_ID'])
 
         if 'GAUGES_SITEID' in app.config:
 
-            self.tracking_code.append(AnalyticsEngines.gauges(app.config['GAUGES_SITEID']))
+            self.snippets['gauges'] = AnalyticsEngines.gauges(app.config['GAUGES_SITEID'])
 
         if (('PIWIK_BASEURL' in app.config) and
             ('PIWIK_SITEID' in app.config)):
 
-            self.tracking_code.append(AnalyticsEngines.piwik(app.config['PIWIK_BASEURL'],
-                                                             app.config['PIWIK_SITEID']))
+            self.snippets['piwik'] = AnalyticsEngines.piwik(app.config['PIWIK_BASEURL'],
+                                                             app.config['PIWIK_SITEID'])
 
         if (('CHARTBEAT_UID' in app.config) and
             ('CHARTBEAT_DOMAIN' in app.config)):
 
-            self.tracking_code.append(AnalyticsEngine.chartbeat(app.config['CHARTBEAT_UID'],
-                                                                app.config['CHARTBEAT_DOMAIN']))
+            self.snippets['chartbeat'] = AnalyticsEngine.chartbeat(app.config['CHARTBEAT_UID'],
+                                                                app.config['CHARTBEAT_DOMAIN'])
 
         if 'GOSQUARED_ID' in app.config:
 
-            self.tracking_code.append(AnalyticsEngine.gosquared(app.config['GOSQUARED_ID']))
+            self.snippets['gosquared'] = AnalyticsEngine.gosquared(app.config['GOSQUARED_ID'])
 
         if context_processor:
             app.context_processor(self._context_processor)
@@ -141,7 +142,15 @@ class Analytics(object):
     @property
     def code(self):
 
-        return Markup('\n'.join(self.tracking_code))
+        processed = self.snippets.copy()
+
+        processed['all'] = Markup('\n'.join(processed.values()))
+
+        for service in processed.keys():
+            if service != 'all':
+                processed[service] = Markup(processed[service])
+
+        return processed
 
     def _context_processor(self):
         return dict(analytics=self.code)
