@@ -44,6 +44,7 @@ __index.html__
 | [Google Analytics](http://www.google.com/analytics/) | `GOOGLE_ANALYTICS_ID` |
 | [Piwik](http://piwik.org/) | `PIWIK_BASEURL`<br>`PIWIK_SITEID`|
 | [Gaug.es](http://gaug.es/) | `GAUGES_SITEID` |
+| [Chartbeat](https://chartbeat.com) | `CHARTBEAT_UID`<br>`CHARTBEAT_DOMAIN` |
 
 ## License
 
