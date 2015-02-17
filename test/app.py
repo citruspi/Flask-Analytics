@@ -4,6 +4,12 @@ from flask.ext.analytics import Analytics
 app = Flask(__name__)
 
 app.config['GAUGES_SITEID'] = 'soV5eile3aiFi9E'
+app.config['GOOGLE_ANALYTICS_ID'] = 'wiengech9tiefuW'
+app.config['PIWIK_BASEURL'] = 'aeniki8pheiFiad'
+app.config['PIWIK_PIWIK_SITEID'] = 'uiP3eeKie6ohDo6'
+app.config['GOSQUARED_ID'] = 'ahz1Nahqueorahw'
+app.config['CHARTBEAT_UID'] = 'uiP3eeKie6ohDo6'
+app.config['CHARTBEAT_DOMAIN'] = 'eeda8Otheefu5qu'
 
 Analytics(app)
 

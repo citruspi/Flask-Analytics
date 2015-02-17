@@ -9,7 +9,48 @@ class TestAnalytics(unittest.TestCase):
 
         response = self.test_app.get('/')
 
-        self.assertEquals(response.data, """<script type="text/javascript">
+        expected = """<script>
+    !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+    arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+    d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+    insertBefore(d,q)}(window,document,'script','_gs');
+
+    _gs('ahz1Nahqueorahw');
+</script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'wiengech9tiefuW']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<script type="text/javascript">
+    var _sf_async_config={};
+    /** CONFIGURATION START **/
+    _sf_async_config.uid = uiP3eeKie6ohDo6; /** CHANGE THIS **/
+    _sf_async_config.domain = "eeda8Otheefu5qu"; /** CHANGE THIS **/
+    /** CONFIGURATION END **/
+    (function(){
+        function loadChartbeat() {
+            window._sf_endpt=(new Date()).getTime();
+            var e = document.createElement("script");
+            e.setAttribute("language", "javascript");
+            e.setAttribute("type", "text/javascript");
+            e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+            document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != "function") ?
+        loadChartbeat : function() { oldonload(); loadChartbeat(); };
+    })();
+</script>
+<script type="text/javascript">
     var _gauges = _gauges || [];
     (function() {
         var t   = document.createElement('script');
@@ -21,5 +62,6 @@ class TestAnalytics(unittest.TestCase):
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(t, s);
     })();
-</script>""") 
+</script>"""
 
+        self.assertEquals(response.data, expected)
