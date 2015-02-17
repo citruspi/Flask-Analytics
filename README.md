@@ -45,6 +45,7 @@ __index.html__
 | [Piwik](http://piwik.org/) | `PIWIK_BASEURL`<br>`PIWIK_SITEID`|
 | [Gaug.es](http://gaug.es/) | `GAUGES_SITEID` |
 | [Chartbeat](https://chartbeat.com) | `CHARTBEAT_UID`<br>`CHARTBEAT_DOMAIN` |
+| [GoSquared](https://www.gosquared.com) | `GOSQUARED_ID` |
 
 ## License
 
