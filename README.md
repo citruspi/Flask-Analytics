@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/citruspi/Flask-Analytics.svg?branch=master)](https://travis-ci.org/citruspi/Flask-Analytics)
+
 ## Flask-Analytics
 
 Flask Analytics is an extension for Flask which generates analytics snippets for inclusion in templates.
