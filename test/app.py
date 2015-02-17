@@ -23,6 +23,11 @@ def google():
 
     return render_template('google.html')
 
+@app.route('/gauges/')
+def gauges():
+
+    return render_template('gauges.html')
+
 if __name__ == '__main__':
 
     app.run()
