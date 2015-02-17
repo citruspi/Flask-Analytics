@@ -18,6 +18,18 @@ class TestAnalytics(unittest.TestCase):
     _gs('ahz1Nahqueorahw');
 </script>
 <script type="text/javascript">
+    var _paq = _paq || [];
+    (function(){
+        var u=(("https:" == document.location.protocol) ? "https://aeniki8pheiFiad/" : "http://aeniki8pheiFiad/");
+        _paq.push(['setSiteId', uiP3eeKie6ohDo6]);
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'piwik.js';
+        s.parentNode.insertBefore(g,s);
+    })();
+</script>
+<script type="text/javascript">
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'wiengech9tiefuW']);
