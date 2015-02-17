@@ -3,7 +3,29 @@ from app import app
 
 class TestAnalytics(unittest.TestCase):
 
-    def test_analytics(self):
+    def test_google(self):
+
+        self.test_app = app.test_client()
+
+        response = self.test_app.get('/google/')
+
+        expected = """<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'wiengech9tiefuW']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>"""
+
+        self.assertEquals(response.data, expected)
+
+    def test_all(self):
 
         self.test_app = app.test_client()
 
