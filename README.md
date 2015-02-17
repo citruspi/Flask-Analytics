@@ -27,17 +27,18 @@ $ pip install Flask-Analytics
 __app.py__
 
 ```python
-
+from flask import Flask, render_template
 from flask.ext.analytics import Analytics
 
+app = Flask(__name__)
 app.config['GAUGES_SITEID'] = 'XXXXXXXXXXXXX'
 
-code = Analytics(app)
+Analytics(app)
 
 @app.route('/')
 def index():
 
-    return render_template('index.html', analytics=code.code)
+    return render_template('index.html')
 ```
 
 __index.html__
@@ -45,21 +46,6 @@ __index.html__
 ```
 {{ analytics }}
 ```
-
-### Smoother Integration
-
-You can use `context processors` for smoother integration with flask.
-
-Add
-
-```python
-@app.context_processor
-def inject_analytics():
-
-    return dict(analytics=analytics.code)
-```
-
-to make `{{ analytics }}` available in every rendered template automatically.
 
 ## License
 
