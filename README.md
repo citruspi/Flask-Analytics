@@ -12,18 +12,6 @@ $ pip install Flask-Analytics
 
 ## Usage
 
-### Defining Service Keys
-
-`Flask-Analytics` uses keys defined in `app.config` to determine which for which services analytics snippets should be generated.
-
-| Service | Keys Required |
-|:--------|:--------------|
-| [Google Analytics](http://www.google.com/analytics/) | `GOOGLE_ANALYTICS_ID` |
-| [Piwik](http://piwik.org/) | `PIWIK_BASEURL`<br>`PIWIK_SITEID`|
-| [Gaug.es](http://gaug.es/) | `GAUGES_SITEID` |
-
-### Integrating with Flask
-
 __app.py__
 
 ```python
@@ -46,6 +34,16 @@ __index.html__
 ```
 {{ analytics }}
 ```
+
+## Services
+
+`Flask-Analytics` uses keys defined in `app.config` to determine which for which services analytics snippets should be generated.
+
+| Service | Keys Required |
+|:--------|:--------------|
+| [Google Analytics](http://www.google.com/analytics/) | `GOOGLE_ANALYTICS_ID` |
+| [Piwik](http://piwik.org/) | `PIWIK_BASEURL`<br>`PIWIK_SITEID`|
+| [Gaug.es](http://gaug.es/) | `GAUGES_SITEID` |
 
 ## License
 
