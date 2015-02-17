@@ -100,16 +100,16 @@ class AnalyticsEngines(object):
 
 class Analytics(object):
 
-    def __init__ (self, app=None):
+    def __init__ (self, app=None, disable_context_processor=False):
 
         self.app = app
         self.tracking_code = []
 
         if app is not None:
 
-            self.init_app(app)
+            self.init_app(app, not(disable_context_processor))
 
-    def init_app(self, app):
+    def init_app(self, app, context_processor):
 
         if 'GOOGLE_ANALYTICS_ID' in app.config:
 
@@ -131,12 +131,17 @@ class Analytics(object):
             self.tracking_code.append(AnalyticsEngine.chartbeat(app.config['CHARTBEAT_UID'],
                                                                 app.config['CHARTBEAT_DOMAIN']))
 
-
         if 'GOSQUARED_ID' in app.config:
 
             self.tracking_code.append(AnalyticsEngine.gosquared(app.config['GOSQUARED_ID']))
+
+        if context_processor:
+            app.context_processor(self._context_processor)
 
     @property
     def code(self):
 
         return Markup('\n'.join(self.tracking_code))
+
+    def _context_processor(self):
+        return dict(analytics=self.code)
