@@ -47,6 +47,23 @@ __index.html__
 | [Chartbeat](https://chartbeat.com) | `CHARTBEAT_UID`<br>`CHARTBEAT_DOMAIN` |
 | [GoSquared](https://www.gosquared.com) | `GOSQUARED_ID` |
 
+## Tests
+
+```
+$ nosetests -v
+test_all (test_app.TestAnalytics) ... ok
+test_chartbeat (test_app.TestAnalytics) ... ok
+test_gauges (test_app.TestAnalytics) ... ok
+test_google (test_app.TestAnalytics) ... ok
+test_gosquared (test_app.TestAnalytics) ... ok
+test_piwik (test_app.TestAnalytics) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.079s
+
+OK
+```
+
 ## License
 
 Flask-Analytics is distributed under the MIT license.
