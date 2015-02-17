@@ -3,6 +3,35 @@ from app import app
 
 class TestAnalytics(unittest.TestCase):
 
+    def test_chartbeat(self):
+
+        self.test_app = app.test_client()
+
+        response = self.test_app.get('/chartbeat/')
+
+        expected = """<script type="text/javascript">
+    var _sf_async_config={};
+    /** CONFIGURATION START **/
+    _sf_async_config.uid = uiP3eeKie6ohDo6; /** CHANGE THIS **/
+    _sf_async_config.domain = "eeda8Otheefu5qu"; /** CHANGE THIS **/
+    /** CONFIGURATION END **/
+    (function(){
+        function loadChartbeat() {
+            window._sf_endpt=(new Date()).getTime();
+            var e = document.createElement("script");
+            e.setAttribute("language", "javascript");
+            e.setAttribute("type", "text/javascript");
+            e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+            document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != "function") ?
+        loadChartbeat : function() { oldonload(); loadChartbeat(); };
+    })();
+</script>"""
+
+        self.assertEquals(response.data, expected)
+
     def test_gosquared(self):
 
         self.test_app = app.test_client()

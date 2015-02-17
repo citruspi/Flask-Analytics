@@ -38,6 +38,11 @@ def gosquared():
 
     return render_template('gosquared.html')
 
+@app.route('/chartbeat/')
+def chartbeat():
+
+    return render_template('chartbeat.html')
+
 if __name__ == '__main__':
 
     app.run()
