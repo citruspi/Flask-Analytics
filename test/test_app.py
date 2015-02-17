@@ -3,6 +3,23 @@ from app import app
 
 class TestAnalytics(unittest.TestCase):
 
+    def test_gosquared(self):
+
+        self.test_app = app.test_client()
+
+        response = self.test_app.get('/gosquared/')
+
+        expected = """<script>
+    !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+    arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+    d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+    insertBefore(d,q)}(window,document,'script','_gs');
+
+    _gs('ahz1Nahqueorahw');
+</script>"""
+
+        self.assertEquals(response.data, expected)
+
     def test_piwik(self):
 
         self.test_app = app.test_client()

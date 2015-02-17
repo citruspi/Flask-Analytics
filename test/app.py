@@ -33,6 +33,11 @@ def piwik():
 
     return render_template('piwik.html')
 
+@app.route('/gosquared/')
+def gosquared():
+
+    return render_template('gosquared.html')
+
 if __name__ == '__main__':
 
     app.run()
