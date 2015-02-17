@@ -28,6 +28,11 @@ def gauges():
 
     return render_template('gauges.html')
 
+@app.route('/piwik/')
+def piwik():
+
+    return render_template('piwik.html')
+
 if __name__ == '__main__':
 
     app.run()

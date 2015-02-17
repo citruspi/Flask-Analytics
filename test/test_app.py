@@ -3,6 +3,27 @@ from app import app
 
 class TestAnalytics(unittest.TestCase):
 
+    def test_piwik(self):
+
+        self.test_app = app.test_client()
+
+        response = self.test_app.get('/piwik/')
+
+        expected = """<script type="text/javascript">
+    var _paq = _paq || [];
+    (function(){
+        var u=(("https:" == document.location.protocol) ? "https://aeniki8pheiFiad/" : "http://aeniki8pheiFiad/");
+        _paq.push(['setSiteId', uiP3eeKie6ohDo6]);
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'piwik.js';
+        s.parentNode.insertBefore(g,s);
+    })();
+</script>"""
+
+        self.assertEquals(response.data, expected)
+
     def test_gauges(self):
 
         self.test_app = app.test_client()
