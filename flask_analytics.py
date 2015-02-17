@@ -6,13 +6,13 @@ class AnalyticsEngines(object):
     def gosquared(uid):
 
         template = """<script>
-            !function(g,s,q,r,d){r=g[r]=g[r]||function(){{(r.q=r.q||[]).push(
-            arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-            d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-            insertBefore(d,q)}}(window,document,'script','_gs');
+    !function(g,s,q,r,d){r=g[r]=g[r]||function(){{(r.q=r.q||[]).push(
+    arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+    d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+    insertBefore(d,q)}}(window,document,'script','_gs');
 
-            _gs('{uid}');
-        </script>"""
+    _gs('{uid}');
+</script>"""
 
         return template.format(uid=uid)
 
@@ -20,25 +20,25 @@ class AnalyticsEngines(object):
     def chartbeat(uid, domain):
 
         template = """<script type="text/javascript">
-            var _sf_async_config={{}};
-            /** CONFIGURATION START **/
-            _sf_async_config.uid = {uid}; /** CHANGE THIS **/
-            _sf_async_config.domain = "{domain}"; /** CHANGE THIS **/
-            /** CONFIGURATION END **/
-            (function(){{
-                function loadChartbeat() {{
-                    window._sf_endpt=(new Date()).getTime();
-                    var e = document.createElement("script");
-                    e.setAttribute("language", "javascript");
-                    e.setAttribute("type", "text/javascript");
-                    e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
-                    document.body.appendChild(e);
-                }}
-                var oldonload = window.onload;
-                window.onload = (typeof window.onload != "function") ?
-                loadChartbeat : function() {{ oldonload(); loadChartbeat(); }};
-            }})();
-          </script>"""
+    var _sf_async_config={{}};
+    /** CONFIGURATION START **/
+    _sf_async_config.uid = {uid}; /** CHANGE THIS **/
+    _sf_async_config.domain = "{domain}"; /** CHANGE THIS **/
+    /** CONFIGURATION END **/
+    (function(){{
+        function loadChartbeat() {{
+            window._sf_endpt=(new Date()).getTime();
+            var e = document.createElement("script");
+            e.setAttribute("language", "javascript");
+            e.setAttribute("type", "text/javascript");
+            e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+            document.body.appendChild(e);
+        }}
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != "function") ?
+        loadChartbeat : function() {{ oldonload(); loadChartbeat(); }};
+    }})();
+</script>"""
 
         return template.format(uid=uid, domain=domain)
 
@@ -46,57 +46,57 @@ class AnalyticsEngines(object):
     def piwik(base_url, site_id):
 
         template = """<script type="text/javascript">
-            var _paq = _paq || [];
-            (function(){{
-                var u=(("https:" == document.location.protocol) ? "https://{base_url}/" : "http://{base_url}/");
-                _paq.push(['setSiteId', {site_id}]);
-                _paq.push(['setTrackerUrl', u+'piwik.php']);
-                _paq.push(['trackPageView']);
-                _paq.push(['enableLinkTracking']);
-                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'piwik.js';
-                s.parentNode.insertBefore(g,s);
-            }})();
-        </script>"""
+    var _paq = _paq || [];
+    (function(){{
+        var u=(("https:" == document.location.protocol) ? "https://{base_url}/" : "http://{base_url}/");
+        _paq.push(['setSiteId', {site_id}]);
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'piwik.js';
+        s.parentNode.insertBefore(g,s);
+    }})();
+</script>"""
 
         return template.format(base_url=base_url, site_id=site_id)
 
     @staticmethod
     def gauges(site_id):
 
-      template = """<script type="text/javascript">
-          var _gauges = _gauges || [];
-          (function() {{
-              var t   = document.createElement('script');
-              t.type  = 'text/javascript';
-              t.async = true;
-              t.id    = 'gauges-tracker';
-              t.setAttribute('data-site-id', '{site_id}');
-              t.src = '//secure.gaug.es/track.js';
-              var s = document.getElementsByTagName('script')[0];
-              s.parentNode.insertBefore(t, s);
-          }})();
-      </script>"""
+        template = """<script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {{
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '{site_id}');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+    }})();
+</script>"""
 
-      return template.format(site_id = site_id)
+        return template.format(site_id = site_id)
 
     @staticmethod
     def google_analytics(account):
 
-      template = """<script type="text/javascript">
+        template = """<script type="text/javascript">
 
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', '{account}']);
-          _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{account}']);
+    _gaq.push(['_trackPageview']);
 
-          (function() {{
-              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          }})();
+    (function() {{
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    }})();
 
-      </script>"""
+</script>"""
 
-      return template.format(account=account)
+        return template.format(account=account)
 
 class Analytics(object):
 
