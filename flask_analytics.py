@@ -1,7 +1,7 @@
 from flask import Flask, Markup
 from pprint import pprint
 
-class AnalyticsEngines(object):
+class Generate(object):
 
     @staticmethod
     def gosquared(uid):
@@ -114,27 +114,32 @@ class Analytics(object):
 
         if 'GOOGLE_ANALYTICS_ID' in app.config:
 
-            self.snippets['google'] = AnalyticsEngines.google_analytics(app.config['GOOGLE_ANALYTICS_ID'])
+            self.snippets['google'] = Generate.google_analytics(
+                                        app.config['GOOGLE_ANALYTICS_ID'])
 
         if 'GAUGES_SITEID' in app.config:
 
-            self.snippets['gauges'] = AnalyticsEngines.gauges(app.config['GAUGES_SITEID'])
+            self.snippets['gauges'] = Generate.gauges(
+                                        app.config['GAUGES_SITEID'])
 
         if (('PIWIK_BASEURL' in app.config) and
             ('PIWIK_SITEID' in app.config)):
 
-            self.snippets['piwik'] = AnalyticsEngines.piwik(app.config['PIWIK_BASEURL'],
-                                                             app.config['PIWIK_SITEID'])
+            self.snippets['piwik'] = Generate.piwik(
+                                        app.config['PIWIK_BASEURL'],
+                                        app.config['PIWIK_SITEID'])
 
         if (('CHARTBEAT_UID' in app.config) and
             ('CHARTBEAT_DOMAIN' in app.config)):
 
-            self.snippets['chartbeat'] = AnalyticsEngines.chartbeat(app.config['CHARTBEAT_UID'],
-                                                                app.config['CHARTBEAT_DOMAIN'])
+            self.snippets['chartbeat'] = Generate.chartbeat(
+                                            app.config['CHARTBEAT_UID'],
+                                            app.config['CHARTBEAT_DOMAIN'])
 
         if 'GOSQUARED_ID' in app.config:
 
-            self.snippets['gosquared'] = AnalyticsEngines.gosquared(app.config['GOSQUARED_ID'])
+            self.snippets['gosquared'] = Generate.gosquared(
+                                           app.config['GOSQUARED_ID'])
 
         if context_processor:
             app.context_processor(self._context_processor)
