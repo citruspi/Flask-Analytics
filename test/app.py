@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask.ext.analytics import Analytics
+from flask_analytics import Analytics
 
 app = Flask(__name__)
 
