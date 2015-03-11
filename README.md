@@ -16,7 +16,7 @@ __app.py__
 
 ```python
 from flask import Flask, render_template
-from flask.ext.analytics import Analytics
+from flask_analytics import Analytics
 
 app = Flask(__name__)
 app.config['GAUGES_SITEID'] = 'XXXXXXXXXXXXX'
