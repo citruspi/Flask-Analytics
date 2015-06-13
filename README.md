@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.org/citruspi/Flask-Analytics.svg?branch=master)](https://travis-ci.org/citruspi/Flask-Analytics)
+[![Travis branch](https://img.shields.io/travis/citruspi/Flask-Analytics/master.svg?style=flat-square)]()
+[![Coveralls branch](https://img.shields.io/coveralls/citruspi/Flask-Analytics/master.svg?style=flat-square)]()
+[![PyPI](https://img.shields.io/pypi/dm/Flask-Analytics.svg?style=flat-square)]()
+[![PyPI](https://img.shields.io/pypi/l/Flask-Analytics.svg?style=flat-square)]()
 
 ## Flask-Analytics
 
