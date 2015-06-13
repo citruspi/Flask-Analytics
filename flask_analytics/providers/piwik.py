@@ -26,5 +26,7 @@ class Piwik(BaseProvider):
 </script>"""
 
     def __str__(self):
+        if self.base_url is None or self.site_id is None:
+            return None
         return self.template.format(base_url=self.base_url,
                                     site_id=self.site_id)

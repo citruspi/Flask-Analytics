@@ -20,4 +20,6 @@ class GoSquared(BaseProvider):
 </script>"""
 
     def __str__(self):
+        if self.uid is None:
+            return None
         return self.template.format(uid=self.uid)

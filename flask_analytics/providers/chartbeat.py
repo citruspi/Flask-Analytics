@@ -34,4 +34,6 @@ class Chartbeat(BaseProvider):
 </script>"""
 
     def __str__(self):
+        if self.uid is None or self.domain is None:
+            return None
         return self.template.format(uid=self.uid, domain=self.domain)
