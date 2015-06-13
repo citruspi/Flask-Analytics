@@ -3,30 +3,33 @@ from flask_analytics import Analytics
 
 app = Flask(__name__)
 
-app.config['ANALYTICS'] = {
-    'GAUGES': {
-        'SITE_ID': 'soV5eile3aiFi9E'
-    },
-    'GOOGLE_ANALYTICS': {
-        'ACCOUNT': 'wiengech9tiefuW',
-    },
-    'PIWIK': {
-        'BASE_URL': 'aeniki8pheiFiad',
-        'SITE_ID': 'uiP3eeKie6ohDo6',
-    },
-    'GOSQUARED': {
-        'UID': 'ahz1Nahqueorahw'
-    },
-    'CHARTBEAT': {
-        'UID': 'uiP3eeKie6ohDo6',
-        'DOMAIN': 'eeda8Otheefu5qu'
-    }
-}
+analytics = Analytics(app)
 
-Analytics(app)
 
 @app.route('/')
 def index():
+
+    app.config['ANALYTICS'] = {
+        'GAUGES': {
+            'SITE_ID': 'soV5eile3aiFi9E'
+        },
+        'GOOGLE_ANALYTICS': {
+            'ACCOUNT': 'wiengech9tiefuW',
+        },
+        'PIWIK': {
+            'BASE_URL': 'aeniki8pheiFiad',
+            'SITE_ID': 'uiP3eeKie6ohDo6',
+        },
+        'GOSQUARED': {
+            'UID': 'ahz1Nahqueorahw'
+        },
+        'CHARTBEAT': {
+            'UID': 'uiP3eeKie6ohDo6',
+            'DOMAIN': 'eeda8Otheefu5qu'
+        }
+    }
+
+    analytics.reload()
 
     return render_template('index.html')
 
@@ -34,31 +37,73 @@ def index():
 @app.route('/google/')
 def google():
 
-    return render_template('google.html')
+    app.config['ANALYTICS'] = {
+        'GOOGLE_ANALYTICS': {
+            'ACCOUNT': 'wiengech9tiefuW',
+        }
+    }
+
+    analytics.reload()
+
+    return render_template('index.html')
 
 
 @app.route('/gauges/')
 def gauges():
 
-    return render_template('gauges.html')
+    app.config['ANALYTICS'] = {
+        'GAUGES': {
+            'SITE_ID': 'soV5eile3aiFi9E'
+        }
+    }
+
+    analytics.reload()
+
+    return render_template('index.html')
 
 
 @app.route('/piwik/')
 def piwik():
 
-    return render_template('piwik.html')
+    app.config['ANALYTICS'] = {
+        'PIWIK': {
+            'BASE_URL': 'aeniki8pheiFiad',
+            'SITE_ID': 'uiP3eeKie6ohDo6',
+        }
+    }
+
+    analytics.reload()
+
+    return render_template('index.html')
 
 
 @app.route('/gosquared/')
 def gosquared():
 
-    return render_template('gosquared.html')
+    app.config['ANALYTICS'] = {
+        'GOSQUARED': {
+            'UID': 'ahz1Nahqueorahw'
+        }
+    }
+
+    analytics.reload()
+
+    return render_template('index.html')
 
 
 @app.route('/chartbeat/')
 def chartbeat():
 
-    return render_template('chartbeat.html')
+    app.config['ANALYTICS'] = {
+        'CHARTBEAT': {
+            'UID': 'uiP3eeKie6ohDo6',
+            'DOMAIN': 'eeda8Otheefu5qu'
+        }
+    }
+
+    analytics.reload()
+
+    return render_template('index.html')
 
 if __name__ == '__main__':
 
