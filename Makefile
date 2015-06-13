@@ -8,6 +8,6 @@ develop:
 
 test: develop
 
-	nosetests
+	nosetests --with-coverage --cover-package=flask_analytics --cover-html
 
 .PHONY: install develop
