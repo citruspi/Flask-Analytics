@@ -5,12 +5,10 @@ class Piwik(BaseProvider):
 
     base_url = None
     site_id = None
-    enabled = True
 
-    def __init__(self, base_url=None, site_id=None, enabled=True):
+    def __init__(self, base_url=None, site_id=None):
         self.base_url = base_url
         self.site_id = site_id
-        self.enabled = enabled
 
     @property
     def template(self):
@@ -28,8 +26,5 @@ class Piwik(BaseProvider):
 </script>"""
 
     def __str__(self):
-        if self.enabled:
-            return self.template.format(base_url=self.base_url,
-                                        site_id=self.site_id)
-        else:
-            return ''
+        return self.template.format(base_url=self.base_url,
+                                    site_id=self.site_id)

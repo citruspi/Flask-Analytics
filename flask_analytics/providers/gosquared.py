@@ -4,11 +4,9 @@ from flask_analytics.providers.base import BaseProvider
 class GoSquared(BaseProvider):
 
     uid = None
-    enabled = True
 
-    def __init__(self, uid=None, enabled=True):
+    def __init__(self, uid=None):
         self.uid = uid
-        self.enabled = enabled
 
     @property
     def template(self):
@@ -22,7 +20,4 @@ class GoSquared(BaseProvider):
 </script>"""
 
     def __str__(self):
-        if self.enabled:
-            return self.template.format(uid=self.uid)
-        else:
-            return ''
+        return self.template.format(uid=self.uid)

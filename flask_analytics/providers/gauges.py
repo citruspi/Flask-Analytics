@@ -4,11 +4,9 @@ from flask_analytics.providers.base import BaseProvider
 class Gauges(BaseProvider):
 
     site_id = None
-    enabled = True
 
-    def __init__(self, site_id=None, enabled=True):
+    def __init__(self, site_id=None):
         self.site_id = site_id
-        self.enabled = enabled
 
     @property
     def template(self):
@@ -27,7 +25,4 @@ class Gauges(BaseProvider):
 </script>"""
 
     def __str__(self):
-        if self.enabled:
-            return self.template.format(site_id=self.site_id)
-        else:
-            return ''
+        return self.template.format(site_id=self.site_id)

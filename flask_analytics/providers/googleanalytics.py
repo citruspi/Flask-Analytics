@@ -4,11 +4,9 @@ from flask_analytics.providers.base import BaseProvider
 class GoogleAnalytics(BaseProvider):
 
     account = None
-    enabled = True
 
-    def __init__(self, account=None, enabled=True):
+    def __init__(self, account=None):
         self.account = account
-        self.enabled = enabled
 
     @property
     def template(self):
@@ -27,7 +25,4 @@ class GoogleAnalytics(BaseProvider):
 </script>"""
 
     def __str__(self):
-        if self.enabled:
-            return self.template.format(account=self.account)
-        else:
-            return ''
+        return self.template.format(account=self.account)

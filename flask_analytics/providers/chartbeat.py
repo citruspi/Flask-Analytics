@@ -5,12 +5,10 @@ class Chartbeat(BaseProvider):
 
     uid = None
     domain = None
-    enabled = True
 
-    def __init__(self, uid=None, domain=None, enabled=True):
+    def __init__(self, uid=None, domain=None):
         self.uid = uid
         self.domain = domain
-        self.enabled = enabled
 
     @property
     def template(self):
@@ -36,7 +34,4 @@ class Chartbeat(BaseProvider):
 </script>"""
 
     def __str__(self):
-        if self.enabled:
-            return self.template.format(uid=self.uid, domain=self.domain)
-        else:
-            return ''
+        return self.template.format(uid=self.uid, domain=self.domain)
