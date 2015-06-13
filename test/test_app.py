@@ -1,7 +1,37 @@
 import unittest
-from app import app
+from app import app, analytics
 
 class TestAnalytics(unittest.TestCase):
+
+    def test_boostrap(self):
+
+        expected = {
+            'CHARTBEAT': {
+                'DOMAIN': None,
+                'ENABLED': True,
+                'UID': None
+            },
+            'ENABLED': True,
+            'GAUGES': {
+                'ENABLED': True,
+                'SITE_ID': None
+            },
+            'GOOGLE_ANALYTICS': {
+                'ACCOUNT': None,
+                'ENABLED': True
+            },
+            'GOSQUARED': {
+                'ENABLED': True,
+                'UID': None
+            },
+            'PIWIK': {
+                'BASE_URL': None,
+                'ENABLED': True,
+                'SITE_ID': None
+            }
+        }
+
+        self.assertEquals(analytics.bootstrap, expected)
 
     def test_none(self):
 
