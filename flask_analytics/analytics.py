@@ -33,6 +33,27 @@ class Analytics(object):
     def reload(self):
         self.build_source(self.app.config)
 
+    @property
+    def bootstrap(self):
+        config = {
+            'ENABLED': True
+        }
+
+        for provider in self.provider_map:
+            subconfig = {
+                'ENABLED': True
+            }
+
+            args = self.provider_map[provider].__init__.func_code.co_varnames
+            args = [arg for arg in args if arg != 'self']
+
+            for arg in args:
+                subconfig[arg.upper()] = None
+
+            config[provider.upper()] = subconfig
+
+        return config
+
     def build_source(self, config):
         self.source = ''
 
