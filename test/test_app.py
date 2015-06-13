@@ -3,6 +3,16 @@ from app import app
 
 class TestAnalytics(unittest.TestCase):
 
+    def test_none(self):
+
+        self.test_app = app.test_client()
+
+        response = self.test_app.get('/none/')
+
+        expected = ""
+
+        self.assertEquals(response.data, expected)
+
     def test_chartbeat(self):
 
         self.test_app = app.test_client()

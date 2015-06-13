@@ -34,6 +34,17 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/none/')
+def none():
+
+    if 'ANALYTICS' in app.config:
+        del app.config['ANALYTICS']
+
+    analytics.reload()
+
+    return render_template('index.html')
+
+
 @app.route('/google/')
 def google():
 
