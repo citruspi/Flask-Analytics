@@ -31,14 +31,10 @@ class Analytics(object):
         if context_processor:
             app.context_processor(self._context_processor)
 
-    def reload(self):
-        self.build_source(self.app.config)
-
     @property
     def bootstrap(self):
         config = {
             'ENABLED': True,
-            'CACHE': True
         }
 
         for provider in self.provider_map:
