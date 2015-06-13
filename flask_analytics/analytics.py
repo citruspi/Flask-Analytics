@@ -42,14 +42,8 @@ class Analytics(object):
                 'ENABLED': True
             }
 
-            init = self.provider_map[provider].__init__
-
-            try:
-                init = init.func_code
-            except AttributeError:
-                init = init.__code__
-
-            args = [arg for arg in init.co_varnames if arg != 'self']
+            args = self.provider_map[provider].__init__.func_code.co_varnames
+            args = [arg for arg in args if arg != 'self']
 
             for arg in args:
                 subconfig[arg.upper()] = None
