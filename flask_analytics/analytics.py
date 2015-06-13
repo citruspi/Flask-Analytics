@@ -36,7 +36,8 @@ class Analytics(object):
     @property
     def bootstrap(self):
         config = {
-            'ENABLED': True
+            'ENABLED': True,
+            'CACHE': True
         }
 
         for provider in self.provider_map:
@@ -94,6 +95,9 @@ class Analytics(object):
 
     @property
     def code(self):
+        if not self.app.config['ANALYTICS'].get('CACHE', True):
+            self.build_source()
+
         return self.source
 
     def _context_processor(self):

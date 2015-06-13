@@ -12,6 +12,7 @@ class TestAnalytics(unittest.TestCase):
                 'UID': None
             },
             'ENABLED': True,
+            'CACHE': True,
             'GAUGES': {
                 'ENABLED': True,
                 'SITE_ID': None
