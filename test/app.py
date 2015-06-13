@@ -34,6 +34,35 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/disabled/')
+def disabled():
+
+    app.config['ANALYTICS'] = {
+        'ENABLED': False,
+        'GAUGES': {
+            'SITE_ID': 'soV5eile3aiFi9E'
+        },
+        'GOOGLE_ANALYTICS': {
+            'ACCOUNT': 'wiengech9tiefuW',
+        },
+        'PIWIK': {
+            'BASE_URL': 'aeniki8pheiFiad',
+            'SITE_ID': 'uiP3eeKie6ohDo6',
+        },
+        'GOSQUARED': {
+            'UID': 'ahz1Nahqueorahw'
+        },
+        'CHARTBEAT': {
+            'UID': 'uiP3eeKie6ohDo6',
+            'DOMAIN': 'eeda8Otheefu5qu'
+        }
+    }
+
+    analytics.reload()
+
+    return render_template('index.html')
+
+
 @app.route('/none/')
 def none():
 

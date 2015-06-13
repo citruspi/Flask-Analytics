@@ -13,6 +13,17 @@ class TestAnalytics(unittest.TestCase):
 
         self.assertEquals(response.data, expected)
 
+    def test_disabled(self):
+
+        self.test_app = app.test_client()
+
+        response = self.test_app.get('/disabled/')
+
+        expected = ""
+
+        self.assertEquals(response.data, expected)
+
+
     def test_chartbeat(self):
 
         self.test_app = app.test_client()
