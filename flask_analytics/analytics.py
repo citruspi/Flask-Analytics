@@ -1,33 +1,9 @@
 from flask import Flask, Markup
 from pprint import pprint
 from flask_analytics.providers.gosquared import GoSquared
+from flask_analytics.providers.chartbeat import Chartbeat
+
 class Generate(object):
-
-    @staticmethod
-    def chartbeat(uid, domain):
-
-        template = """<script type="text/javascript">
-    var _sf_async_config={{}};
-    /** CONFIGURATION START **/
-    _sf_async_config.uid = {uid}; /** CHANGE THIS **/
-    _sf_async_config.domain = "{domain}"; /** CHANGE THIS **/
-    /** CONFIGURATION END **/
-    (function(){{
-        function loadChartbeat() {{
-            window._sf_endpt=(new Date()).getTime();
-            var e = document.createElement("script");
-            e.setAttribute("language", "javascript");
-            e.setAttribute("type", "text/javascript");
-            e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
-            document.body.appendChild(e);
-        }}
-        var oldonload = window.onload;
-        window.onload = (typeof window.onload != "function") ?
-        loadChartbeat : function() {{ oldonload(); loadChartbeat(); }};
-    }})();
-</script>"""
-
-        return template.format(uid=uid, domain=domain)
 
     @staticmethod
     def piwik(base_url, site_id):
@@ -118,9 +94,10 @@ class Analytics(object):
         if (('CHARTBEAT_UID' in app.config) and
             ('CHARTBEAT_DOMAIN' in app.config)):
 
-            self.snippets['chartbeat'] = Generate.chartbeat(
-                                            app.config['CHARTBEAT_UID'],
-                                            app.config['CHARTBEAT_DOMAIN'])
+            c = Chartbeat(uid=app.config['CHARTBEAT_UID'],
+                          domain=app.config['CHARTBEAT_DOMAIN'])
+
+            self.snippets['chartbeat'] = str(c)
 
         if 'GOSQUARED_ID' in app.config:
 
