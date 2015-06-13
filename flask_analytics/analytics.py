@@ -17,6 +17,7 @@ class Analytics(object):
     }
 
     _source = ''
+    _config = {}
 
     def __init__(self, app=None, disable_context_processor=False):
         self.app = app
@@ -92,11 +93,12 @@ class Analytics(object):
                 self._source += Markup(instance.source)
 
         self._source = self._source.lstrip()
+        self._config = config
 
     @property
     def source(self):
-        if not self.app.config['ANALYTICS'].get('CACHE', True):
-            self.build_source()
+        if self._config != self.app.config:
+            self.build_source(self.app.config)
 
         return self._source
 

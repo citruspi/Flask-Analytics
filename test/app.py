@@ -29,8 +29,6 @@ def index():
         }
     }
 
-    analytics.reload()
-
     return render_template('index.html')
 
 
@@ -58,8 +56,6 @@ def disabled():
         }
     }
 
-    analytics.reload()
-
     return render_template('index.html')
 
 
@@ -68,8 +64,6 @@ def none():
 
     if 'ANALYTICS' in app.config:
         del app.config['ANALYTICS']
-
-    analytics.reload()
 
     return render_template('index.html')
 
@@ -83,8 +77,6 @@ def google():
         }
     }
 
-    analytics.reload()
-
     return render_template('index.html')
 
 
@@ -96,8 +88,6 @@ def gauges():
             'SITE_ID': 'soV5eile3aiFi9E'
         }
     }
-
-    analytics.reload()
 
     return render_template('index.html')
 
@@ -112,8 +102,6 @@ def piwik():
         }
     }
 
-    analytics.reload()
-
     return render_template('index.html')
 
 
@@ -125,8 +113,6 @@ def gosquared():
             'UID': 'ahz1Nahqueorahw'
         }
     }
-
-    analytics.reload()
 
     return render_template('index.html')
 
@@ -140,8 +126,6 @@ def chartbeat():
             'DOMAIN': 'eeda8Otheefu5qu'
         }
     }
-
-    analytics.reload()
 
     return render_template('index.html')
 
