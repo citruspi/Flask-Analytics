@@ -4,27 +4,7 @@ from flask_analytics.providers.gosquared import GoSquared
 from flask_analytics.providers.chartbeat import Chartbeat
 from flask_analytics.providers.piwik import Piwik
 from flask_analytics.providers.gauges import Gauges
-
-class Generate(object):
-
-    @staticmethod
-    def google_analytics(account):
-
-        template = """<script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '{account}']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {{
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    }})();
-
-</script>"""
-
-        return template.format(account=account)
+from flask_analytics.providers.googleanalytics import GoogleAnalytics
 
 class Analytics(object):
 
@@ -41,8 +21,9 @@ class Analytics(object):
 
         if 'GOOGLE_ANALYTICS_ID' in app.config:
 
-            self.snippets['google'] = Generate.google_analytics(
-                                        app.config['GOOGLE_ANALYTICS_ID'])
+            g = GoogleAnalytics(account=app.config['GOOGLE_ANALYTICS_ID'])
+
+            self.snippets['google'] = str(g)
 
         if 'GAUGES_SITEID' in app.config:
 
