@@ -58,7 +58,7 @@ class Analytics(object):
         self.source = ''
 
         if 'ANALYTICS' not in config:
-            return
+            self.app.config['ANALYTICS'] = self.bootstrap
 
         config = config['ANALYTICS']
 
