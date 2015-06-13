@@ -3,13 +3,25 @@ from flask_analytics import Analytics
 
 app = Flask(__name__)
 
-app.config['GAUGES_SITEID'] = 'soV5eile3aiFi9E'
-app.config['GOOGLE_ANALYTICS_ID'] = 'wiengech9tiefuW'
-app.config['PIWIK_BASEURL'] = 'aeniki8pheiFiad'
-app.config['PIWIK_SITEID'] = 'uiP3eeKie6ohDo6'
-app.config['GOSQUARED_ID'] = 'ahz1Nahqueorahw'
-app.config['CHARTBEAT_UID'] = 'uiP3eeKie6ohDo6'
-app.config['CHARTBEAT_DOMAIN'] = 'eeda8Otheefu5qu'
+app.config['ANALYTICS'] = {
+    'GAUGES': {
+        'SITE_ID': 'soV5eile3aiFi9E'
+    },
+    'GOOGLE_ANALYTICS': {
+        'ACCOUNT': 'wiengech9tiefuW',
+    },
+    'PIWIK': {
+        'BASE_URL': 'aeniki8pheiFiad',
+        'SITE_ID': 'uiP3eeKie6ohDo6',
+    },
+    'GOSQUARED': {
+        'UID': 'ahz1Nahqueorahw'
+    },
+    'CHARTBEAT': {
+        'UID': 'uiP3eeKie6ohDo6',
+        'DOMAIN': 'eeda8Otheefu5qu'
+    }
+}
 
 Analytics(app)
 
@@ -18,25 +30,30 @@ def index():
 
     return render_template('index.html')
 
+
 @app.route('/google/')
 def google():
 
     return render_template('google.html')
+
 
 @app.route('/gauges/')
 def gauges():
 
     return render_template('gauges.html')
 
+
 @app.route('/piwik/')
 def piwik():
 
     return render_template('piwik.html')
 
+
 @app.route('/gosquared/')
 def gosquared():
 
     return render_template('gosquared.html')
+
 
 @app.route('/chartbeat/')
 def chartbeat():
