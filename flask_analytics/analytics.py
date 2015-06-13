@@ -3,27 +3,9 @@ from pprint import pprint
 from flask_analytics.providers.gosquared import GoSquared
 from flask_analytics.providers.chartbeat import Chartbeat
 from flask_analytics.providers.piwik import Piwik
+from flask_analytics.providers.gauges import Gauges
 
 class Generate(object):
-
-    @staticmethod
-    def gauges(site_id):
-
-        template = """<script type="text/javascript">
-    var _gauges = _gauges || [];
-    (function() {{
-        var t   = document.createElement('script');
-        t.type  = 'text/javascript';
-        t.async = true;
-        t.id    = 'gauges-tracker';
-        t.setAttribute('data-site-id', '{site_id}');
-        t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
-    }})();
-</script>"""
-
-        return template.format(site_id = site_id)
 
     @staticmethod
     def google_analytics(account):
@@ -64,8 +46,9 @@ class Analytics(object):
 
         if 'GAUGES_SITEID' in app.config:
 
-            self.snippets['gauges'] = Generate.gauges(
-                                        app.config['GAUGES_SITEID'])
+            g = Gauges(site_id=app.config['GAUGES_SITEID'])
+
+            self.snippets['gauges'] = str(g)
 
         if (('PIWIK_BASEURL' in app.config) and
             ('PIWIK_SITEID' in app.config)):
