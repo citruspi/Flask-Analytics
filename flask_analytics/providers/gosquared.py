@@ -19,7 +19,8 @@ class GoSquared(BaseProvider):
     _gs('{uid}');
 </script>"""
 
-    def __str__(self):
+    @property
+    def source(self):
         if self.uid is None:
             return None
         return self.template.format(uid=self.uid)

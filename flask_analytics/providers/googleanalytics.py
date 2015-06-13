@@ -24,7 +24,8 @@ class GoogleAnalytics(BaseProvider):
 
 </script>"""
 
-    def __str__(self):
+    @property
+    def source(self):
         if self.account is None:
             return None
         return self.template.format(account=self.account)

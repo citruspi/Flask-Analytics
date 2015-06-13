@@ -86,9 +86,9 @@ class Analytics(object):
 
             instance = self.provider_map[provider](**args)
 
-            if str(instance) is not None:
+            if instance.source is not None:
                 self.source += '\n'
-                self.source += Markup(str(instance))
+                self.source += Markup(instance.source)
 
         self.source = self.source.lstrip()
 

@@ -24,7 +24,8 @@ class Gauges(BaseProvider):
     }})();
 </script>"""
 
-    def __str__(self):
+    @property
+    def source(self):
         if self.site_id is None:
             return None
         return self.template.format(site_id=self.site_id)
