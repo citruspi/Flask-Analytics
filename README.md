@@ -1,7 +1,10 @@
 [![Travis branch](https://img.shields.io/travis/citruspi/Flask-Analytics/master.svg?style=flat-square)]()
 [![Coveralls branch](https://img.shields.io/coveralls/citruspi/Flask-Analytics/master.svg?style=flat-square)]()
 [![PyPI](https://img.shields.io/pypi/dm/Flask-Analytics.svg?style=flat-square)]()
-[![PyPI](https://img.shields.io/pypi/l/Flask-Analytics.svg?style=flat-square)]()
+[![PyPI](https://img.shields.io/pypi/v/Flask-Analytics.svg?style=flat-square)]()
+[![PyPI](https://img.shields.io/pypi/wheel/Flask-Analytics.svg?style=flat-square)]()
+[![PyPI](https://img.shields.io/pypi/pyversions/Flask-Analytics.svg?style=flat-square)]()
+[![PyPI](https://img.shields.io/pypi/status/Flask-Analytics.svg?style=flat-square)]()
 
 ## Flask-Analytics
 
