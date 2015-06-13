@@ -3,7 +3,6 @@ from setuptools import setup
 setup(
     name="Flask-Analytics",
     version="0.0.1",
-    license="MIT",
     author="Mihir Singh (@citruspi)",
     author_email="citruspi@riseup.net",
     packages=['flask_analytics'],
@@ -12,5 +11,8 @@ setup(
     platforms='any',
     install_requires=[
         'Flask',
+    ],
+    classifiers=[
+        'License :: Public Domain',
     ]
 )

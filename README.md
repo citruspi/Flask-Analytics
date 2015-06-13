@@ -69,4 +69,5 @@ OK
 
 ## License
 
-Flask-Analytics is distributed under the MIT license.
+Flask-Analytics is dedicated to the public domain. Please read the license for
+more information.
