@@ -6,9 +6,10 @@ python:
 
 install:
   - python setup.py install
-  - pip install codecov
+  - pip install coveralls
 
 script: nosetests
 
 after_success:
-  codecov
+  - nosetests --with-coverage --cover-package=flask_analytics --cover-html
+  - coveralls
