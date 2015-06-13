@@ -1,21 +1,7 @@
 from flask import Flask, Markup
 from pprint import pprint
-
+from flask_analytics.providers.gosquared import GoSquared
 class Generate(object):
-
-    @staticmethod
-    def gosquared(uid):
-
-        template = """<script>
-    !function(g,s,q,r,d){{r=g[r]=g[r]||function(){{(r.q=r.q||[]).push(
-    arguments)}};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-    d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-    insertBefore(d,q)}}(window,document,'script','_gs');
-
-    _gs('{uid}');
-</script>"""
-
-        return template.format(uid=uid)
 
     @staticmethod
     def chartbeat(uid, domain):
@@ -138,9 +124,9 @@ class Analytics(object):
 
         if 'GOSQUARED_ID' in app.config:
 
-            self.snippets['gosquared'] = Generate.gosquared(
-                                           app.config['GOSQUARED_ID'])
+            g = GoSquared(uid=app.config['GOSQUARED_ID'])
 
+            self.snippets['gosquared'] = str(g)
         if context_processor:
             app.context_processor(self._context_processor)
 

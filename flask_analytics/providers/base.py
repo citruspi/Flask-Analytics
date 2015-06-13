@@ -1,0 +1,3 @@
+class BaseProvider(object):
+
+    pass

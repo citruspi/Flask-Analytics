@@ -6,12 +6,11 @@ setup(
     license="MIT",
     author="Mihir Singh (@citruspi)",
     author_email="citruspi@riseup.net",
-    py_modules=["flask_analytics"],
+    packages=['flask_analytics'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',
     install_requires=[
-      'Flask',
+        'Flask',
     ]
 )
-
