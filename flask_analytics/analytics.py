@@ -25,14 +25,19 @@ class Analytics(object):
             self.init_app(app, not(disable_context_processor))
 
     def init_app(self, app, context_processor):
-        if 'ANALYTICS' in app.config:
-            self.build_source(app.config['ANALYTICS'])
+        self.build_source(app.config)
 
         if context_processor:
             app.context_processor(self._context_processor)
 
     def build_source(self, config):
         self.source = ''
+
+        if 'ANALYTICS' not in config:
+            return
+
+        config = config['ANALYTICS']
+
         enabled = config.get('ENABLED', True)
 
         if not enabled:
