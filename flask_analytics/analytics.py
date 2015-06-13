@@ -2,26 +2,9 @@ from flask import Flask, Markup
 from pprint import pprint
 from flask_analytics.providers.gosquared import GoSquared
 from flask_analytics.providers.chartbeat import Chartbeat
+from flask_analytics.providers.piwik import Piwik
 
 class Generate(object):
-
-    @staticmethod
-    def piwik(base_url, site_id):
-
-        template = """<script type="text/javascript">
-    var _paq = _paq || [];
-    (function(){{
-        var u=(("https:" == document.location.protocol) ? "https://{base_url}/" : "http://{base_url}/");
-        _paq.push(['setSiteId', {site_id}]);
-        _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.defer=true; g.async=true; g.src=u+'piwik.js';
-        s.parentNode.insertBefore(g,s);
-    }})();
-</script>"""
-
-        return template.format(base_url=base_url, site_id=site_id)
 
     @staticmethod
     def gauges(site_id):
@@ -87,9 +70,10 @@ class Analytics(object):
         if (('PIWIK_BASEURL' in app.config) and
             ('PIWIK_SITEID' in app.config)):
 
-            self.snippets['piwik'] = Generate.piwik(
-                                        app.config['PIWIK_BASEURL'],
-                                        app.config['PIWIK_SITEID'])
+             p = Piwik(base_url=app.config['PIWIK_BASEURL'],
+                       site_id=app.config['PIWIK_SITEID'])
+
+             self.snippets['piwik'] = str(p)
 
         if (('CHARTBEAT_UID' in app.config) and
             ('CHARTBEAT_DOMAIN' in app.config)):
