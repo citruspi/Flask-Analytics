@@ -45,7 +45,7 @@ __index.html__
 
 __result__
 
-```
+```html
 $ curl http://localhost:5000/
 <script type="text/javascript">
     var _gauges = _gauges || [];
