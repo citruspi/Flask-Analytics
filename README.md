@@ -43,6 +43,25 @@ __index.html__
 {{ analytics }}
 ```
 
+__result__
+
+```
+$ curl http://localhost:5000/
+<script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', 'XXXXXXXXXXXXX');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+    })();
+</script>
+```
+
 ## Services
 
 `Flask-Analytics` uses keys defined in `app.config['ANALYTICS']` to determine which for which services analytics snippets should be generated.
