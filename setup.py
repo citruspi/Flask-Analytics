@@ -6,7 +6,7 @@ setup(
     author="Mihir Singh (@citruspi)",
     author_email="hello@mihirsingh.com",
     url='https://github.com/citruspi/Flask-Analytics',
-    packages=['flask_analytics'],
+    packages=['flask_analytics', 'flask_analytics.providers'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',
