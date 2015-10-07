@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="Flask-Analytics",
-    version="0.5.0",
+    version="0.5.1",
     author="Mihir Singh (@citruspi)",
     author_email="hello@mihirsingh.com",
     url='https://github.com/citruspi/Flask-Analytics',
