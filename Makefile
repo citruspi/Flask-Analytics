@@ -8,6 +8,6 @@ test: develop
 	nosetests -v --with-coverage --cover-package=flask_analytics --cover-html
 
 publish: test
-	python setup.py sdist bdist_wininst upload
+	python setup.py sdist bdist_wheel upload
 
 .PHONY: install develop publish
