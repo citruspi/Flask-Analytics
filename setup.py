@@ -5,6 +5,7 @@ setup(
     version="0.5.2",
     author="Mihir Singh (@citruspi)",
     author_email="hello@mihirsingh.com",
+    description="Analytics snippets generator extension for the Flask framework",
     url='https://github.com/citruspi/Flask-Analytics',
     packages=['flask_analytics', 'flask_analytics.providers'],
     zip_safe=False,
