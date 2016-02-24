@@ -79,7 +79,7 @@ class Analytics(object):
             if 'ENABLED' in args:
                 del args['ENABLED']
 
-            for key in args:
+            for key in list(args):
                 args[key.lower()] = args.pop(key)
 
             instance = self.provider_map[provider](**args)
