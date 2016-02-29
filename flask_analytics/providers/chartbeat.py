@@ -15,7 +15,7 @@ class Chartbeat(BaseProvider):
         return """<script type="text/javascript">
     var _sf_async_config={{}};
     /** CONFIGURATION START **/
-    _sf_async_config.uid = {uid}; /** CHANGE THIS **/
+    _sf_async_config.uid = "{uid}"; /** CHANGE THIS **/
     _sf_async_config.domain = "{domain}"; /** CHANGE THIS **/
     /** CONFIGURATION END **/
     (function(){{

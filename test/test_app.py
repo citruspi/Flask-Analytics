@@ -64,7 +64,7 @@ class TestAnalytics(unittest.TestCase):
         expected = """<script type="text/javascript">
     var _sf_async_config={};
     /** CONFIGURATION START **/
-    _sf_async_config.uid = uiP3eeKie6ohDo6; /** CHANGE THIS **/
+    _sf_async_config.uid = "uiP3eeKie6ohDo6"; /** CHANGE THIS **/
     _sf_async_config.domain = "eeda8Otheefu5qu"; /** CHANGE THIS **/
     /** CONFIGURATION END **/
     (function(){
@@ -208,7 +208,7 @@ class TestAnalytics(unittest.TestCase):
 <script type="text/javascript">
     var _sf_async_config={};
     /** CONFIGURATION START **/
-    _sf_async_config.uid = uiP3eeKie6ohDo6; /** CHANGE THIS **/
+    _sf_async_config.uid = "uiP3eeKie6ohDo6"; /** CHANGE THIS **/
     _sf_async_config.domain = "eeda8Otheefu5qu"; /** CHANGE THIS **/
     /** CONFIGURATION END **/
     (function(){
