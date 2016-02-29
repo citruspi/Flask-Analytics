@@ -16,7 +16,7 @@ class Piwik(BaseProvider):
     var _paq = _paq || [];
     (function(){{
         var u=(("https:" == document.location.protocol) ? "https://{base_url}/" : "http://{base_url}/");
-        _paq.push(['setSiteId', {site_id}]);
+        _paq.push(['setSiteId', '{site_id}']);
         _paq.push(['setTrackerUrl', u+'piwik.php']);
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);

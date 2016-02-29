@@ -111,7 +111,7 @@ class TestAnalytics(unittest.TestCase):
     var _paq = _paq || [];
     (function(){
         var u=(("https:" == document.location.protocol) ? "https://aeniki8pheiFiad/" : "http://aeniki8pheiFiad/");
-        _paq.push(['setSiteId', uiP3eeKie6ohDo6]);
+        _paq.push(['setSiteId', 'uiP3eeKie6ohDo6']);
         _paq.push(['setTrackerUrl', u+'piwik.php']);
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
@@ -184,7 +184,7 @@ class TestAnalytics(unittest.TestCase):
     var _paq = _paq || [];
     (function(){
         var u=(("https:" == document.location.protocol) ? "https://aeniki8pheiFiad/" : "http://aeniki8pheiFiad/");
-        _paq.push(['setSiteId', uiP3eeKie6ohDo6]);
+        _paq.push(['setSiteId', 'uiP3eeKie6ohDo6']);
         _paq.push(['setTrackerUrl', u+'piwik.php']);
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
