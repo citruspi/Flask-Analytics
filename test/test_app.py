@@ -1,4 +1,5 @@
 import unittest
+import re
 from app import app, analytics
 
 class TestAnalytics(unittest.TestCase):
@@ -41,7 +42,7 @@ class TestAnalytics(unittest.TestCase):
 
         expected = ""
 
-        self.assertEquals(response.data, expected)
+        self.assertEquals(response.data, expected.encode('utf8'))
 
     def test_disabled(self):
 
@@ -51,7 +52,7 @@ class TestAnalytics(unittest.TestCase):
 
         expected = ""
 
-        self.assertEquals(response.data, expected)
+        self.assertEquals(response.data, expected.encode('utf8'))
 
 
     def test_chartbeat(self):
@@ -81,7 +82,7 @@ class TestAnalytics(unittest.TestCase):
     })();
 </script>"""
 
-        self.assertEquals(response.data, expected)
+        self.assertEquals(response.data, expected.encode('utf8'))
 
     def test_gosquared(self):
 
@@ -98,7 +99,7 @@ class TestAnalytics(unittest.TestCase):
     _gs('ahz1Nahqueorahw');
 </script>"""
 
-        self.assertEquals(response.data, expected)
+        self.assertEquals(response.data, expected.encode('utf8'))
 
     def test_piwik(self):
 
@@ -119,7 +120,7 @@ class TestAnalytics(unittest.TestCase):
     })();
 </script>"""
 
-        self.assertEquals(response.data, expected)
+        self.assertEquals(response.data, expected.encode('utf8'))
 
     def test_gauges(self):
 
@@ -141,7 +142,7 @@ class TestAnalytics(unittest.TestCase):
     })();
 </script>"""
 
-        self.assertEquals(response.data, expected)
+        self.assertEquals(response.data, expected.encode('utf8'))
 
     def test_google(self):
 
@@ -163,7 +164,7 @@ class TestAnalytics(unittest.TestCase):
 
 </script>"""
 
-        self.assertEquals(response.data, expected)
+        self.assertEquals(response.data, expected.encode('utf8'))
 
     def test_all(self):
 
@@ -238,4 +239,9 @@ class TestAnalytics(unittest.TestCase):
     })();
 </script>"""
 
-        self.assertEquals(response.data, expected)
+
+
+        response_sections = sorted(re.split('<|>',str(response.data)))
+        expected_sections = sorted(re.split('<|>',str(expected.encode('utf'))))
+
+        self.assertEquals(response_sections, expected_sections)

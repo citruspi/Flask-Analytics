@@ -42,7 +42,7 @@ class Analytics(object):
                 'ENABLED': True
             }
 
-            args = self.provider_map[provider].__init__.func_code.co_varnames
+            args = self.provider_map[provider].__init__.__code__.co_varnames
             args = [arg for arg in args if arg != 'self']
 
             for arg in args:
@@ -79,7 +79,7 @@ class Analytics(object):
             if 'ENABLED' in args:
                 del args['ENABLED']
 
-            for key in args:
+            for key in list(args):
                 args[key.lower()] = args.pop(key)
 
             instance = self.provider_map[provider](**args)
