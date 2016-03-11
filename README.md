@@ -68,7 +68,8 @@ $ curl http://localhost:5000/
 
 | Service | Keys Required |
 |:--------|:--------------|
-| [Google Analytics](http://www.google.com/analytics/) | `['GOOGLE_ANALYTICS']['ACCOUNT']` |
+| [Google Analytics (analytics.js)](http://www.google.com/analytics/) | `['GOOGLE_ANALYTICS']['ACCOUNT']` |
+| [Universal Analytics (ga.js) ](http://www.google.com/analytics/) | `['GOOGLE_ANALYTICS']['ACCOUNT']` |
 | [Piwik](http://piwik.org/) | `['PIWIK']['BASE_URL']`<br>`['PIWIK']['SITE_ID']`|
 | [Gaug.es](http://gaug.es/) | `['GAUGES']['SITE_ID']` |
 | [Chartbeat](https://chartbeat.com) | `['CHARTBEAT']['UID']`<br>`['CHARTBEAT']['DOMAIN']` |
