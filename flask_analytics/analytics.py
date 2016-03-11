@@ -13,7 +13,8 @@ class Analytics(object):
         'chartbeat': Chartbeat,
         'piwik': Piwik,
         'gauges': Gauges,
-        'google_analytics': GoogleAnalytics
+        'google_analytics': GoogleAnalytics,
+        'universal_analytics': UniversalAnalytics
     }
 
     _source = ''

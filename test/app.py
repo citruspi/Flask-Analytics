@@ -26,6 +26,9 @@ def index():
         'CHARTBEAT': {
             'UID': 'uiP3eeKie6ohDo6',
             'DOMAIN': 'eeda8Otheefu5qu'
+        },
+        'UNIVERSAL_ANALYTICS':{
+            'ACCOUNT': 'idmbak3kfpdg2N'
         }
     }
 
@@ -53,6 +56,9 @@ def disabled():
         'CHARTBEAT': {
             'UID': 'uiP3eeKie6ohDo6',
             'DOMAIN': 'eeda8Otheefu5qu'
+        },
+        'UNIVERSAL_ANALYTICS':{
+            'ACCOUNT': 'idmbak3kfpdg2N'
         }
     }
 
@@ -126,6 +132,17 @@ def chartbeat():
             'DOMAIN': 'eeda8Otheefu5qu'
         }
     }
+
+@app.route('/universal/')
+def universal():
+
+    app.config['ANALYTICS'] = {
+        'UNIVERSAL_ANALYTICS': {
+            'ACCOUNT': 'idmbak3kfpdg2N',
+        }
+    }
+
+    return render_template('index.html')
 
     return render_template('index.html')
 
