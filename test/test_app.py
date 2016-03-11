@@ -21,6 +21,10 @@ class TestAnalytics(unittest.TestCase):
                 'ACCOUNT': None,
                 'ENABLED': True
             },
+            'UNIVERSAL_ANALYTICS': {
+                'ACCOUNT': None,
+                'ENABLED': True
+            },
             'GOSQUARED': {
                 'ENABLED': True,
                 'UID': None

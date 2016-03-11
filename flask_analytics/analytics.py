@@ -4,6 +4,7 @@ from flask_analytics.providers.chartbeat import Chartbeat
 from flask_analytics.providers.piwik import Piwik
 from flask_analytics.providers.gauges import Gauges
 from flask_analytics.providers.googleanalytics import GoogleAnalytics
+from flask_analytics.providers.universalanalytics import UniversalAnalytics
 
 
 class Analytics(object):
