@@ -94,22 +94,24 @@ test_google (test_app.TestAnalytics) ... ok
 test_gosquared (test_app.TestAnalytics) ... ok
 test_none (test_app.TestAnalytics) ... ok
 test_piwik (test_app.TestAnalytics) ... ok
+test_universal (test_app.TestAnalytics) ... ok
 
-Name                                        Stmts   Miss  Cover   Missing
--------------------------------------------------------------------------
-flask_analytics                                 1      0   100%   
-flask_analytics.analytics                      59      0   100%   
-flask_analytics.providers                       0      0   100%   
-flask_analytics.providers.base                  2      0   100%   
-flask_analytics.providers.chartbeat            13      0   100%   
-flask_analytics.providers.gauges               11      0   100%   
-flask_analytics.providers.googleanalytics      11      0   100%   
-flask_analytics.providers.gosquared            11      0   100%   
-flask_analytics.providers.piwik                13      0   100%   
--------------------------------------------------------------------------
-TOTAL                                         121      0   100%   
+Name                                              Stmts   Miss  Cover   Missing
+-------------------------------------------------------------------------------
+flask_analytics.py                                    1      0   100%   
+flask_analytics/analytics.py                         60      1    98%   77
+flask_analytics/providers.py                          0      0   100%   
+flask_analytics/providers/base.py                     2      0   100%   
+flask_analytics/providers/chartbeat.py               13      0   100%   
+flask_analytics/providers/gauges.py                  11      0   100%   
+flask_analytics/providers/googleanalytics.py         11      0   100%   
+flask_analytics/providers/gosquared.py               11      0   100%   
+flask_analytics/providers/piwik.py                   13      0   100%   
+flask_analytics/providers/universalanalytics.py      11      0   100%   
+-------------------------------------------------------------------------------
+TOTAL                                               133      1    99%   
 ----------------------------------------------------------------------
-Ran 9 tests in 0.108s
+Ran 10 tests in 0.110s
 
 OK
 ```
