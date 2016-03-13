@@ -28,7 +28,7 @@ def index():
             'DOMAIN': 'eeda8Otheefu5qu'
         },
         'UNIVERSAL_ANALYTICS':{
-            'ACCOUNT': 'idmbak3kfpdg2N'
+            'ACCOUNT': 'iqmbak3kfpdg2N'
         }
     }
 
@@ -58,7 +58,7 @@ def disabled():
             'DOMAIN': 'eeda8Otheefu5qu'
         },
         'UNIVERSAL_ANALYTICS':{
-            'ACCOUNT': 'idmbak3kfpdg2N'
+            'ACCOUNT': 'iqmbak3kfpdg2N'
         }
     }
 
@@ -133,16 +133,16 @@ def chartbeat():
         }
     }
 
+    return render_template('index.html')
+
 @app.route('/universal/')
 def universal():
 
     app.config['ANALYTICS'] = {
         'UNIVERSAL_ANALYTICS': {
-            'ACCOUNT': 'idmbak3kfpdg2N',
+            'ACCOUNT': 'iqmbak3kfpdg2N',
         }
     }
-
-    return render_template('index.html')
 
     return render_template('index.html')
 
