@@ -3,8 +3,8 @@ from flask_analytics.providers.gosquared import GoSquared
 from flask_analytics.providers.chartbeat import Chartbeat
 from flask_analytics.providers.piwik import Piwik
 from flask_analytics.providers.gauges import Gauges
-from flask_analytics.providers.googleanalytics import GoogleAnalytics
-from flask_analytics.providers.universalanalytics import UniversalAnalytics
+from flask_analytics.providers.googleclassicanalytics import GoogleClassicAnalytics
+from flask_analytics.providers.googleuniversalanalytics import GoogleUniversalAnalytics
 
 
 class Analytics(object):
@@ -14,8 +14,8 @@ class Analytics(object):
         'chartbeat': Chartbeat,
         'piwik': Piwik,
         'gauges': Gauges,
-        'google_analytics': GoogleAnalytics,
-        'universal_analytics': UniversalAnalytics
+        'google_classic_analytics': GoogleClassicAnalytics,
+        'google_universal_analytics': GoogleUniversalAnalytics
     }
 
     _source = ''

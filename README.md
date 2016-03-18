@@ -107,7 +107,7 @@ flask_analytics/providers/gauges.py                  11      0   100%
 flask_analytics/providers/googleanalytics.py         11      0   100%   
 flask_analytics/providers/gosquared.py               11      0   100%   
 flask_analytics/providers/piwik.py                   13      0   100%   
-flask_analytics/providers/universalanalytics.py      11      0   100%   
+flask_analytics/providers/googleuniversalanalytics.py      11      0   100%   
 -------------------------------------------------------------------------------
 TOTAL                                               133      1    99%   
 ----------------------------------------------------------------------

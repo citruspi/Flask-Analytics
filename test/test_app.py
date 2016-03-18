@@ -17,11 +17,11 @@ class TestAnalytics(unittest.TestCase):
                 'ENABLED': True,
                 'SITE_ID': None
             },
-            'GOOGLE_ANALYTICS': {
+            'GOOGLE_CLASSIC_ANALYTICS': {
                 'ACCOUNT': None,
                 'ENABLED': True
             },
-            'UNIVERSAL_ANALYTICS': {
+            'GOOGLE_UNIVERSAL_ANALYTICS': {
                 'ACCOUNT': None,
                 'ENABLED': True
             },
@@ -148,11 +148,11 @@ class TestAnalytics(unittest.TestCase):
 
         self.assertEquals(response.data, expected.encode('utf8'))
 
-    def test_google(self):
+    def test_google_classic(self):
 
         self.test_app = app.test_client()
 
-        response = self.test_app.get('/google/')
+        response = self.test_app.get('/google-classic/')
 
         expected = """<script type="text/javascript">
 
@@ -170,11 +170,11 @@ class TestAnalytics(unittest.TestCase):
 
         self.assertEquals(response.data, expected.encode('utf8'))
 
-    def test_universal(self):
+    def test_google_universal(self):
 
         self.test_app = app.test_client()
 
-        response = self.test_app.get('/universal/')
+        response = self.test_app.get('/google-universal/')
 
         expected = """<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

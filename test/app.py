@@ -13,7 +13,7 @@ def index():
         'GAUGES': {
             'SITE_ID': 'soV5eile3aiFi9E'
         },
-        'GOOGLE_ANALYTICS': {
+        'GOOGLE_CLASSIC_ANALYTICS': {
             'ACCOUNT': 'wiengech9tiefuW',
         },
         'PIWIK': {
@@ -27,7 +27,7 @@ def index():
             'UID': 'uiP3eeKie6ohDo6',
             'DOMAIN': 'eeda8Otheefu5qu'
         },
-        'UNIVERSAL_ANALYTICS':{
+        'GOOGLE_UNIVERSAL_ANALYTICS':{
             'ACCOUNT': 'iqmbak3kfpdg2N'
         }
     }
@@ -43,7 +43,7 @@ def disabled():
         'GAUGES': {
             'SITE_ID': 'soV5eile3aiFi9E'
         },
-        'GOOGLE_ANALYTICS': {
+        'GOOGLE_CLASSIC_ANALYTICS': {
             'ACCOUNT': 'wiengech9tiefuW',
         },
         'PIWIK': {
@@ -57,7 +57,7 @@ def disabled():
             'UID': 'uiP3eeKie6ohDo6',
             'DOMAIN': 'eeda8Otheefu5qu'
         },
-        'UNIVERSAL_ANALYTICS':{
+        'GOOGLE_UNIVERSAL_ANALYTICS':{
             'ACCOUNT': 'iqmbak3kfpdg2N'
         }
     }
@@ -74,11 +74,11 @@ def none():
     return render_template('index.html')
 
 
-@app.route('/google/')
+@app.route('/google-classic/')
 def google():
 
     app.config['ANALYTICS'] = {
-        'GOOGLE_ANALYTICS': {
+        'GOOGLE_CLASSIC_ANALYTICS': {
             'ACCOUNT': 'wiengech9tiefuW',
         }
     }
@@ -135,11 +135,11 @@ def chartbeat():
 
     return render_template('index.html')
 
-@app.route('/universal/')
+@app.route('/google-universal/')
 def universal():
 
     app.config['ANALYTICS'] = {
-        'UNIVERSAL_ANALYTICS': {
+        'GOOGLE_UNIVERSAL_ANALYTICS': {
             'ACCOUNT': 'iqmbak3kfpdg2N',
         }
     }
