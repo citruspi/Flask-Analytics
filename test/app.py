@@ -13,7 +13,7 @@ def index():
         'GAUGES': {
             'SITE_ID': 'soV5eile3aiFi9E'
         },
-        'GOOGLE_ANALYTICS': {
+        'GOOGLE_CLASSIC_ANALYTICS': {
             'ACCOUNT': 'wiengech9tiefuW',
         },
         'PIWIK': {
@@ -26,6 +26,9 @@ def index():
         'CHARTBEAT': {
             'UID': 'uiP3eeKie6ohDo6',
             'DOMAIN': 'eeda8Otheefu5qu'
+        },
+        'GOOGLE_UNIVERSAL_ANALYTICS':{
+            'ACCOUNT': 'iqmbak3kfpdg2N'
         }
     }
 
@@ -40,7 +43,7 @@ def disabled():
         'GAUGES': {
             'SITE_ID': 'soV5eile3aiFi9E'
         },
-        'GOOGLE_ANALYTICS': {
+        'GOOGLE_CLASSIC_ANALYTICS': {
             'ACCOUNT': 'wiengech9tiefuW',
         },
         'PIWIK': {
@@ -53,6 +56,9 @@ def disabled():
         'CHARTBEAT': {
             'UID': 'uiP3eeKie6ohDo6',
             'DOMAIN': 'eeda8Otheefu5qu'
+        },
+        'GOOGLE_UNIVERSAL_ANALYTICS':{
+            'ACCOUNT': 'iqmbak3kfpdg2N'
         }
     }
 
@@ -68,11 +74,11 @@ def none():
     return render_template('index.html')
 
 
-@app.route('/google/')
+@app.route('/google-classic/')
 def google():
 
     app.config['ANALYTICS'] = {
-        'GOOGLE_ANALYTICS': {
+        'GOOGLE_CLASSIC_ANALYTICS': {
             'ACCOUNT': 'wiengech9tiefuW',
         }
     }
@@ -124,6 +130,17 @@ def chartbeat():
         'CHARTBEAT': {
             'UID': 'uiP3eeKie6ohDo6',
             'DOMAIN': 'eeda8Otheefu5qu'
+        }
+    }
+
+    return render_template('index.html')
+
+@app.route('/google-universal/')
+def universal():
+
+    app.config['ANALYTICS'] = {
+        'GOOGLE_UNIVERSAL_ANALYTICS': {
+            'ACCOUNT': 'iqmbak3kfpdg2N',
         }
     }
 

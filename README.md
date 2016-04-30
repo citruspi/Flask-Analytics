@@ -1,5 +1,6 @@
 [![Travis branch](https://img.shields.io/travis/citruspi/Flask-Analytics/master.svg?style=flat-square)]()
 [![Coveralls branch](https://img.shields.io/coveralls/citruspi/Flask-Analytics/master.svg?style=flat-square)]()
+[![Build Status](https://semaphoreci.com/api/v1/johngroves/flask-analytics/branches/master/badge.svg)](https://semaphoreci.com/johngroves/flask-analytics)
 [![License](https://img.shields.io/github/license/citruspi/Flask-Analytics.svg?style=flat-square)]()
 [![PyPI](https://img.shields.io/pypi/dm/Flask-Analytics.svg?style=flat-square)]()
 [![PyPI](https://img.shields.io/pypi/v/Flask-Analytics.svg?style=flat-square)]()
@@ -68,7 +69,8 @@ $ curl http://localhost:5000/
 
 | Service | Keys Required |
 |:--------|:--------------|
-| [Google Analytics](http://www.google.com/analytics/) | `['GOOGLE_ANALYTICS']['ACCOUNT']` |
+| [Google Analytics (ga.js)](http://www.google.com/analytics/) | `['GOOGLE_CLASSIC_ANALYTICS']['ACCOUNT']` |
+| [Universal Analytics (analytics.js) ](http://www.google.com/analytics/) | `['GOOGLE_UNIVERSAL_ANALYTICS']['ACCOUNT']` |
 | [Piwik](http://piwik.org/) | `['PIWIK']['BASE_URL']`<br>`['PIWIK']['SITE_ID']`|
 | [Gaug.es](http://gaug.es/) | `['GAUGES']['SITE_ID']` |
 | [Chartbeat](https://chartbeat.com) | `['CHARTBEAT']['UID']`<br>`['CHARTBEAT']['DOMAIN']` |
@@ -83,32 +85,35 @@ When the configuration changes, the source for the analytics code will automatic
 ## Tests
 
 ```
-nosetests -v --with-coverage --cover-package=flask_analytics --cover-html
+$ nosetests -v --with-coverage --cover-package=flask_analytics --cover-html 
 test_all (test_app.TestAnalytics) ... ok
 test_boostrap (test_app.TestAnalytics) ... ok
 test_chartbeat (test_app.TestAnalytics) ... ok
 test_disabled (test_app.TestAnalytics) ... ok
 test_gauges (test_app.TestAnalytics) ... ok
-test_google (test_app.TestAnalytics) ... ok
+test_google_classic (test_app.TestAnalytics) ... ok
+test_google_universal (test_app.TestAnalytics) ... ok
 test_gosquared (test_app.TestAnalytics) ... ok
 test_none (test_app.TestAnalytics) ... ok
 test_piwik (test_app.TestAnalytics) ... ok
 
-Name                                        Stmts   Miss  Cover   Missing
--------------------------------------------------------------------------
-flask_analytics                                 1      0   100%   
-flask_analytics.analytics                      59      0   100%   
-flask_analytics.providers                       0      0   100%   
-flask_analytics.providers.base                  2      0   100%   
-flask_analytics.providers.chartbeat            13      0   100%   
-flask_analytics.providers.gauges               11      0   100%   
-flask_analytics.providers.googleanalytics      11      0   100%   
-flask_analytics.providers.gosquared            11      0   100%   
-flask_analytics.providers.piwik                13      0   100%   
--------------------------------------------------------------------------
-TOTAL                                         121      0   100%   
+Name                                                    Stmts   Miss  Cover   Missing
+-------------------------------------------------------------------------------------
+flask_analytics.py                                          1      0   100%   
+flask_analytics/analytics.py                               60      1    98%   77
+flask_analytics/providers.py                                0      0   100%   
+flask_analytics/providers/base.py                           2      0   100%   
+flask_analytics/providers/chartbeat.py                     13      0   100%   
+flask_analytics/providers/gauges.py                        11      0   100%   
+flask_analytics/providers/googleclassicanalytics.py        11      0   100%   
+flask_analytics/providers/googleuniversalanalytics.py      11      0   100%   
+flask_analytics/providers/gosquared.py                     11      0   100%   
+flask_analytics/providers/piwik.py                         13      0   100%   
+-------------------------------------------------------------------------------------
+TOTAL                                                     133      1    99%   
 ----------------------------------------------------------------------
-Ran 9 tests in 0.108s
+Ran 10 tests in 0.111s
+
 
 OK
 ```

@@ -1,7 +1,7 @@
 from flask_analytics.providers.base import BaseProvider
 
 
-class GoogleAnalytics(BaseProvider):
+class GoogleClassicAnalytics(BaseProvider):
 
     account = None
 

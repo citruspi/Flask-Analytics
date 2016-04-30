@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="Flask-Analytics",
-    version="0.5.5",
+    version="0.5.6",
     author="Mihir Singh (@citruspi)",
     author_email="hello@mihirsingh.com",
     description="Analytics snippets generator extension for the Flask framework",
